@@ -90,9 +90,20 @@ export function setupLLMVCR(options?: LLMVCROptions): void {
         const fetchRequest = request.clone();
         const response = await fetch(bypass(fetchRequest));
 
-        await record(request, response.clone(), currentFingerprint, mergedOptions);
+        // Strip content-encoding because node:fetch auto-decompresses the body stream,
+        // but preserves the header, causing downstream clients like OpenAI SDK to double-decompress and crash!
+        const cleanedHeaders = new Headers(response.headers);
+        cleanedHeaders.delete('content-encoding');
+        cleanedHeaders.delete('content-length');
+        
+        const cleanResponse = new Response(response.body, {
+          status: response.status,
+          statusText: response.statusText,
+          headers: cleanedHeaders
+        });
 
-        return response;
+        await record(request, cleanResponse.clone(), currentFingerprint, mergedOptions);
+        return cleanResponse;
       });
     });
   });

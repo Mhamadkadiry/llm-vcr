@@ -24,18 +24,23 @@ export async function replay(
 
   const cassette = loadCassette(fingerprint, config.cassetteDir);
 
+  // Strip content-encoding to prevent downstream SDKs from double-decompression errors
+  const headers = new Headers(cassette.response.headers as Record<string, string>);
+  headers.delete('content-encoding');
+  headers.delete('content-length');
+
   if (cassette.response.isStreaming) {
     const stream = config.streaming.timing === 'faithful'
       ? buildSSEStreamFaithful(cassette.response.chunks)
       : buildSSEStream(cassette.response.chunks);
     return new Response(stream, {
       status: cassette.response.status,
-      headers: cassette.response.headers, // Need to make sure headers like content-type are kept
+      headers: headers,
     });
   } else {
     return new Response(JSON.stringify(cassette.response.body), {
       status: cassette.response.status,
-      headers: cassette.response.headers,
+      headers: headers,
     });
   }
 }
