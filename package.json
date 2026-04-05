@@ -2,12 +2,22 @@
   "name": "llm-vcr",
   "version": "0.1.0",
   "description": "Record and replay LLM API calls in tests. Fast, free, deterministic.",
-  "keywords": ["llm", "testing", "mock", "openai", "anthropic", "vcr", "cassette", "streaming", "sse"],
+  "keywords": [
+    "llm",
+    "testing",
+    "mock",
+    "openai",
+    "anthropic",
+    "vcr",
+    "cassette",
+    "streaming",
+    "sse"
+  ],
   "license": "MIT",
-  "author": "Your Name",
+  "author": "Mohamad Al Kadiri",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourname/llm-vcr"
+    "url": "https://github.com/mhamadkadiry/llm-vcr"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -22,8 +32,14 @@
   "bin": {
     "llm-vcr": "./dist/cli/main.js"
   },
-  "files": ["dist", "README.md", "LICENSE"],
-  "engines": { "node": ">=18.0.0" },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "build": "tsup",
     "test": "vitest run",
@@ -47,6 +63,8 @@
     "vitest": ">=1.0.0"
   },
   "peerDependenciesMeta": {
-    "vitest": { "optional": true }
+    "vitest": {
+      "optional": true
+    }
   }
 }
