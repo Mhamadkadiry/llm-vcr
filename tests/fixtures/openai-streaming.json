@@ -1,0 +1,34 @@
+{
+  "version": "1",
+  "recordedAt": "2026-04-05T14:23:01.000Z",
+  "provider": "openai",
+  "fingerprint": "o8s9f7a6a4a4b2c1",
+  "request": {
+    "url": "https://api.openai.com/v1/chat/completions",
+    "method": "POST",
+    "headers": {
+      "Authorization": "[REDACTED]",
+      "content-type": "application/json"
+    },
+    "body": {
+      "model": "gpt-4o",
+      "messages": [{ "role": "user", "content": "Tell me a joke" }],
+      "stream": true
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/event-stream"
+    },
+    "isStreaming": true,
+    "body": null,
+    "chunks": [
+      { "data": "{\"choices\":[{\"delta\":{\"content\":\"Why \"}}]}", "delayMs": 10 },
+      { "data": "{\"choices\":[{\"delta\":{\"content\":\"did \"}}]}", "delayMs": 25 },
+      { "data": "{\"choices\":[{\"delta\":{\"content\":\"the \"}}]}", "delayMs": 35 },
+      { "data": "{\"choices\":[{\"delta\":{\"content\":\"chicken \"}}]}", "delayMs": 50 },
+      { "data": "{\"choices\":[{\"delta\":{\"content\":\"cross\"}}]}", "delayMs": 75 }
+    ]
+  }
+}

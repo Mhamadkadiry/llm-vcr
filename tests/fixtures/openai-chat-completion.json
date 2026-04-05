@@ -1,0 +1,35 @@
+{
+  "version": "1",
+  "recordedAt": "2026-04-05T14:23:01.000Z",
+  "provider": "openai",
+  "fingerprint": "a3f9b2c1d4e5f607",
+  "request": {
+    "url": "https://api.openai.com/v1/chat/completions",
+    "method": "POST",
+    "headers": {
+      "Authorization": "[REDACTED]",
+      "content-type": "application/json"
+    },
+    "body": {
+      "model": "gpt-4o",
+      "messages": [{ "role": "user", "content": "Where is my refund?" }],
+      "temperature": 0.7
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "isStreaming": false,
+    "body": {
+      "id": "chatcmpl-abc123",
+      "object": "chat.completion",
+      "choices": [{
+        "message": { "role": "assistant", "content": "I sincerely apologize..." },
+        "finish_reason": "stop"
+      }]
+    },
+    "chunks": []
+  }
+}

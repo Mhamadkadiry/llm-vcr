@@ -1,0 +1,29 @@
+{
+  "version": "1",
+  "recordedAt": "2026-04-05T14:23:01.000Z",
+  "provider": "anthropic",
+  "fingerprint": "b7d4e9f2a1c30841",
+  "request": {
+    "url": "https://api.anthropic.com/v1/messages",
+    "method": "POST",
+    "headers": {
+      "x-api-key": "[REDACTED]",
+      "content-type": "application/json"
+    },
+    "body": {
+      "model": "claude-3-opus-20240229",
+      "messages": [{ "role": "user", "content": "Hello" }]
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "isStreaming": false,
+    "body": {
+      "content": [{"type": "text", "text": "Hi there!"}]
+    },
+    "chunks": []
+  }
+}
