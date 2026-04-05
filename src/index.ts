@@ -3,4 +3,5 @@ export { LLMVCRMissError, LLMVCRConfigError, LLMVCRCassetteError } from './error
 export { openaiProvider } from './providers/openai-provider.js';
 export { anthropicProvider } from './providers/anthropic-provider.js';
 export { defineProvider } from './providers/index.js';
-export type { LLMVCROptions, Provider, Cassette, SSEChunk } from './config.js';
+export type { Provider } from './providers/index.js';
+export type { LLMVCROptions, Cassette, SSEChunk } from './config.js';
